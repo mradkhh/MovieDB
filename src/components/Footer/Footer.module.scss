@@ -1,0 +1,52 @@
+.Root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 16px;
+
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+.Socially {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+
+  > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--basic3);
+  }
+}
+
+.Center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.Copyright {
+  border-top: 1px solid var(--basic3);
+  padding-top: 24px;
+  text-align: center;
+  color: var(--basic3);
+
+  > div {
+    margin-bottom: 8px;
+  }
+}
+

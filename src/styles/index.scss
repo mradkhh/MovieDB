@@ -1,0 +1,93 @@
+@import "design_token";
+@import "utils";
+@import "components";
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main), sans-serif;
+  background-color: var(--basic5);
+}
+
+a {
+  text-decoration: none;
+  color: var(--basic6);
+  transition: color 250ms ease;
+
+  &:hover {
+    color: var(--basic3);
+  }
+}
+
+ul, ol, dl {
+  list-style: none;
+}
+
+h1,h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+input {
+  outline: none;
+  width: 100%;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--basic3);
+  color: var(--white);
+  line-height: 0;
+
+  &::placeholder {
+    color: var(--basic5);
+  }
+}
+
+button {
+
+  cursor: pointer;
+  &:active {
+    transform: scale(.98);
+  }
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.j-start {
+  justify-content: flex-start;
+}
+
+i-start {
+  align-items: flex-start;
+}
+
+mt-70 {
+  height: 70px;
+}

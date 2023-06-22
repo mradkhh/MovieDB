@@ -1,0 +1,15 @@
+.Root {
+  font-size: 16px;
+
+  > td {
+    padding: 8px 16px;
+  }
+
+  :first-child {
+    background-color: var(--basic3);
+  }
+
+  :last-child {
+    background-color: var(--basic4);
+  }
+}

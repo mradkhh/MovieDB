@@ -1,0 +1,17 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 12345;
+  background-color: var(--basic2);
+}
+
+#footer {
+  background-color: var(--basic2);
+  padding-block: 40px;
+}
+
+#carousel {
+  margin-bottom: 40px;
+}

@@ -1,0 +1,26 @@
+.Spinner {
+  animation: rotate-keyframes 500ms ease infinite;
+}
+
+@keyframes rotate-keyframes {
+  0% {
+  transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Dark {
+
+  circle {
+    stroke-width: 1.5;
+    stroke-opacity: 1;
+    stroke: var(--basic3);
+  }
+
+  path {
+    stroke-width: 1.5;
+    stroke: var(--green2);
+  }
+}

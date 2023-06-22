@@ -1,0 +1,25 @@
+.Root {
+  margin-block: 20px;
+  max-width: max-content;
+  > a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--basic1);
+    text-transform: uppercase;
+
+  &:hover {
+    transition: all 250ms ease;
+    > span {
+      transform: translateX(10px);
+    }
+  }
+  }
+
+}
+
+.Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

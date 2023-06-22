@@ -1,0 +1,22 @@
+.Card {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.Img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.Body {
+  padding-block: 8px;
+  > h2 {
+    font-size: 17px;
+    color: var(--basic1);
+  }
+
+  > p {
+    font-size: 14px;
+    color: var(--basic2);
+  }
+}

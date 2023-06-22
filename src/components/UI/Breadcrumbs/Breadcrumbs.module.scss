@@ -1,0 +1,27 @@
+.Root {
+  margin-top: 80px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+   >  a {
+     color: var(--basic3);
+
+     &:hover {
+       color: var(--green2);
+     }
+   }
+
+
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 4px;
+  }
+
+  > div {
+    color: var(--basic1);
+  }
+}

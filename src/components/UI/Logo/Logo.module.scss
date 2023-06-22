@@ -1,0 +1,17 @@
+.Root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: var(--green3);
+  font-size: 32px;
+  font-weight: 600;
+
+  > span {
+    color: var(--basic6);
+  }
+
+  > p {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}

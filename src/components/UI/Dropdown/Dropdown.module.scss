@@ -1,0 +1,61 @@
+.Root {
+  position: relative;
+  max-width: max-content;
+}
+
+.Title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--basic6);
+  transition: color 250ms ease;
+  &:hover {
+    color: var(--green3);
+  > svg path {
+      stroke: var(--green3);
+    }
+  }
+}
+
+.Dropdown {
+  overflow: hidden;
+  border-radius: 8px;
+  width: max-content;
+  min-width: 150px;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--basic2);
+  z-index: 12345678;
+  animation: fade-down 200ms ease;
+}
+
+.DropdownItem {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--green2);
+  }
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    top: 35px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    opacity: 1;
+    top: 12px;
+  }
+}

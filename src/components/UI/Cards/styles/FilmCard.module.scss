@@ -1,0 +1,37 @@
+.Card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.Year {
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  font-size: 12px;
+  background-color: var(--red2);
+  padding: 3px 12px;
+  border-radius: 4px;
+  z-index: 123;
+  color: var(--basic6);
+  line-height: 1;
+}
+
+
+.Img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.Body {
+  padding-block: 8px;
+  > h2 {
+    font-size: 18px;
+    color: var(--basic1);
+  }
+
+  > p {
+    font-size: 14px;
+    color: var(--basic2);
+  }
+}

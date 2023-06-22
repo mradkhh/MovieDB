@@ -1,0 +1,29 @@
+@use 'sass:math';
+$containerWidth: 1180;
+$containerPadding: 20;
+$containerSidePadding: math.div($containerPadding, 2);
+$breakpoint1450: 1449.98 + px;
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+.container {
+  max-width: ($containerWidth + $containerPadding) + px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: $containerSidePadding + px;
+
+
+  @media (max-width: $breakpoint1450) {
+    max-width: 1200px;
+  }
+  @media (max-width: $breakpoint992) {
+    max-width: 960px;
+  }
+  @media (max-width: $breakpoint768) {
+    max-width: 740px;
+  }
+  @media (max-width: $breakpoint480) {
+    max-width: none;
+  }
+}

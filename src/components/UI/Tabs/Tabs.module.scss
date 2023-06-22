@@ -1,0 +1,18 @@
+.Root {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Title {
+  margin: 4px;
+  padding: 10px;
+  background-color: var(--basic2);
+  color: var(--green3);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.Content {
+  height: 100px;
+}

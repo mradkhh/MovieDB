@@ -1,0 +1,15 @@
+.Root {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12px;
+
+  @media (min-width: 567px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 678px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
