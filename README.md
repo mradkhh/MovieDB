@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Repo haqida: \
 [OMDb](https://www.omdbapi.com/) - Open Movie Database API orqali filmlarni qidirish.\
-Dizayn [UZMOVIning](http://uzmovi.com/) redizaynni sifatida ilhomlanib chizilgan
+Dizayn [UZMOVIning](http://uzmovi.com/) redizayni sifatida ilhomlanib chizilgan.
 
 Ushbu repoda ishlatilgan texnologiyalar:
 1. React Js
