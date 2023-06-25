@@ -13,7 +13,12 @@ const FilmDetailsCard: FC<FilmDetailsCardProps> = ({movieInfo}) => {
     return (
         <div className={[cl.Root, ' flex-start'].join('')}>
             <div className={cl.Img}>
-                <img src={movieInfo?.Poster} alt={movieInfo?.Title}/>
+                <img
+                    src={movieInfo?.Poster !== 'N/A' ? movieInfo?.Poster : '/movie.png'}
+                    width={300}
+                    height={386}
+                    alt={movieInfo?.Title}
+                />
             </div>
             <table className={cl.Table}>
                 <tbody className={cl.Body}>

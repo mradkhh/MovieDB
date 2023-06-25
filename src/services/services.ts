@@ -6,8 +6,6 @@ interface CustomError {
     status: number
 }
 
-const apiKey = process.env.API_KEY;
-
 
 const API = `http://www.omdbapi.com`
 

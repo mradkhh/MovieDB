@@ -21,8 +21,9 @@
 .Img {
   overflow: hidden;
   border-radius: 8px;
-  width: 100%;
-  max-width: 100%;
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
 }
 
 .Body {
@@ -34,7 +35,7 @@
 
   > p {
     font-size: 14px;
-    color: var(--basic2);
+    color: var(--green1);
     text-transform: capitalize;
   }
 }

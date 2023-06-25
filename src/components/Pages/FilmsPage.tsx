@@ -8,6 +8,7 @@ import {IMovie} from "components/Pages/FilmPage";
 import {Spinner} from "components/UI/Spiner/Spiner";
 import cl from './FilmsPage.module.scss'
 import {useRouter} from "next/router";
+import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 
 const breadcrumb = [
     { path: '/', text: 'Bosh sahifa' }
@@ -20,11 +21,15 @@ const FilmsPage: FC = () => {
     const { query } = useRouter()
 
     const [ fetchSearch, { data, isLoading } ] = useFetchSearchByTitleMutation()
+    const [ fetchSearchStatic, { data: static_movies, } ] = useFetchSearchByTitleMutation()
 
-    console.log(data)
     useEffect(() => {
-        fetchSearch({s: query?.id})
-    }, [query])
+        fetchSearchStatic({s: 'george'})
+    }, [])
+
+    useEffect(() => {
+        fetchSearch({s: query?.id, page: page})
+    }, [query, page])
 
 
     return (
@@ -32,31 +37,34 @@ const FilmsPage: FC = () => {
             <Breadcrumbs array={breadcrumb} current='Kinolar'/>
             {
                 (data?.Search?.length && !isLoading)
-                    ? <Grid>
-                        {
-                            data?.Search ? data?.Search?.map((film: IMovie) =>
-                                <FilmCard
-                                    genre={film?.Type}
-                                    key={film?.imdbID}
-                                    id={film?.imdbID}
-                                    title={film?.Title}
-                                    year={film?.Year}
-                                    image={film?.Poster}
-                                />
-                            ) : null
-                        }
-                    </Grid> : isLoading ? <Spinner/> : null
+                    ? <>
+                        <Grid>
+                            {
+                                data?.Search ? data?.Search?.map((film: IMovie) =>
+                                    <FilmCard
+                                        genre={film?.Type}
+                                        key={film?.imdbID}
+                                        id={film?.imdbID}
+                                        title={film?.Title}
+                                        year={film?.Year}
+                                        image={film?.Poster !== 'N/A' ? film?.Poster : '/movie.png' }
+                                    />
+                                ) : null
+                            }
+                        </Grid>
+                        <Pagination page={page} pages={Math.floor(data?.totalResults / 10)} setPage={setPage} />
+                    </>
+                    : isLoading ? <Spinner/> : null
             }
-            <Pagination page={page} pages={300} setPage={setPage} />
-            {/*<FilmsCarouselLayout*/}
-            {/*    title='Tasodifiy'*/}
-            {/*    type='slider'*/}
-            {/*    data={data}*/}
-            {/*    autoplay={{*/}
-            {/*        delay: 1500*/}
-            {/*    }}*/}
-            {/*    button={false}*/}
-            {/*/>*/}
+            <FilmsCarouselLayout
+                title='Tasodifiy'
+                type='slider'
+                data={static_movies?.Search}
+                autoplay={{
+                    delay: 1500
+                }}
+                button={false}
+            />
         </>
     );
 };

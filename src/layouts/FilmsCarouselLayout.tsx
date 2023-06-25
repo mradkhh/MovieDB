@@ -25,7 +25,7 @@ interface FilmsFilmsCarouselLayoutProps {
     title?: string,
     href?: string,
     type: string,
-    data: FilmType[],
+    data: any,
     autoplay?: any,
     button?: boolean
 }
@@ -45,7 +45,7 @@ const FilmsCarouselLayout: FC<FilmsFilmsCarouselLayoutProps> = ({
             { (type === 'slider') || (type === 'trailer') ? <Head title={title} href={href ? href : ''}/> : null  }
             <Carousel type={type} autoplay={autoplay} button={button} >
                 {
-                   (type !== 'banner' && data) && data?.map((film, index) =>
+                   (type !== 'banner' && data) && data?.map((film: FilmType, index: number) =>
                         <SwiperSlide key={index} >
                             <FilmCard
                                 genre={film?.Type}
@@ -60,7 +60,7 @@ const FilmsCarouselLayout: FC<FilmsFilmsCarouselLayoutProps> = ({
 
                 }
                 {
-                    (type === 'banner' && data) && data?.map((film, index) =>
+                    (type === 'banner' && data) && data?.map((film: FilmType, index: number) =>
                         <SwiperSlide key={index} >
                             { film?.component }
                         </SwiperSlide>
