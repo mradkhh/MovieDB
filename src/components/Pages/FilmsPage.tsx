@@ -9,6 +9,7 @@ import {Spinner} from "components/UI/Spiner/Spiner";
 import cl from './FilmsPage.module.scss'
 import {useRouter} from "next/router";
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
+import {EmptyIcon} from "static/svg";
 
 const breadcrumb = [
     { path: '/', text: 'Bosh sahifa' }
@@ -54,7 +55,14 @@ const FilmsPage: FC = () => {
                         </Grid>
                         <Pagination page={page} pages={Math.floor(data?.totalResults / 10)} setPage={setPage} />
                     </>
-                    : isLoading ? <Spinner/> : null
+                    : isLoading
+                        ? <Spinner/> :
+                        (!data?.Search?.length && !isLoading) ? <div className={cl.empty_page}>
+                            <div>
+                                <EmptyIcon/>
+                                <h3>Siz qidiryotgan film topilmadi!</h3>
+                            </div>
+                        </div> : null
             }
             <FilmsCarouselLayout
                 title='Tasodifiy'

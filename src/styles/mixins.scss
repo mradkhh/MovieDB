@@ -1,0 +1,61 @@
+@mixin flex($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flex-center($justify) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin flex-column($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: column;
+}
+
+@mixin flex-around($align) {
+  display: flex;
+  align-items: $align;
+  justify-content: space-around;
+}
+
+@mixin flex-between($align) {
+  display: flex !important;
+  align-items: $align;
+  justify-content: space-between;
+}
+
+@mixin flex-end($align) {
+  display: flex;
+  align-items: $align;
+  justify-content: flex-end;
+}
+
+@mixin flex-start($align) {
+  display: flex !important;
+  align-items: $align !important;
+  justify-content: flex-start !important;
+}
+
+// -------------------- width -------------------
+
+@mixin width($width) {
+  max-width: $width+px;
+  min-width: $width+px;
+}
+
+@mixin maxWidth($width) {
+  max-width: $width+px !important;
+  width: 100%;
+}
+
+@mixin rectangle($width-height) {
+  width: $width-height+px;
+  min-width: $width-height+px;
+  height: $width-height+px;
+  min-height: $width-height+px;
+}

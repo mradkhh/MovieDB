@@ -18,6 +18,7 @@ import film6 from "static/images/film6.jpg";
 import cl from './FilmPage.module.scss';
 import {useFetchGetMovieByIDQuery, useFetchSearchByTitleMutation} from "services/services";
 import {useRouter} from "next/router";
+import {Spinner} from "components/UI/Spiner/Spiner";
 
 interface FilmPageProps {
 
@@ -79,9 +80,15 @@ const FilmPage: FC<FilmPageProps> = memo(({  }) => {
         <>
             <Breadcrumbs array={breadcrumb} current='Film name'/>
             <Container id='film-details_card'>
-                <FilmDetailsCard
-                    movieInfo={movie}
-                />
+                {
+                    (movie && !isLoading)
+                        ? <FilmDetailsCard
+                            movieInfo={movie}
+                        />
+                        : (isLoading)
+                            ? <Spinner/>
+                        : null
+                }
             </Container>
             <FilmsCarouselLayout
                 title="O'xshash"

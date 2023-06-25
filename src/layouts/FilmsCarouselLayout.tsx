@@ -42,7 +42,7 @@ const FilmsCarouselLayout: FC<FilmsFilmsCarouselLayoutProps> = ({
 
     return (
         <Container id='carousel'>
-            { (type === 'slider') || (type === 'trailer') ? <Head title={title} href={href ? href : ''}/> : null  }
+            { data?.length && ((type === 'slider') || (type === 'trailer')) ? <Head title={title} href={href ? href : ''}/> : null  }
             <Carousel type={type} autoplay={autoplay} button={button} >
                 {
                    (type !== 'banner' && data) && data?.map((film: FilmType, index: number) =>
