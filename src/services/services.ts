@@ -29,8 +29,8 @@ export const fetchApi = createApi({
                 }),
                 providesTags: () => ['Fetch'],
             }),
-            fetchGetMovieByID: builder.query<IMovie, { id: string }>({
-                query: ({id}) => ({
+            fetchGetMovieByID: builder.query<IMovie, string | undefined>({
+                query: (id) => ({
                     url: `/?i=${id}&apikey=6721955c`,
                 }),
                 providesTags: () => ['Fetch'],

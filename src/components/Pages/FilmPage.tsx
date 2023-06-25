@@ -1,4 +1,4 @@
-import React, {FC, memo, useEffect} from 'react';
+import React, {FC, memo, useEffect, useState} from 'react';
 import Breadcrumbs from "components/UI/Breadcrumbs/Breadcrumbs";
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import FilmDetailsCard from "components/UI/Cards/FilmDetailsCard/FilmDetailsCard";
@@ -65,9 +65,10 @@ interface Rating {
 
 const FilmPage: FC<FilmPageProps> = memo(({  }) => {
 
+
     const { query } = useRouter()
 
-    const { data: movie } = useFetchGetMovieByIDQuery({ id: query.id })
+    const { data: movie } = useFetchGetMovieByIDQuery(`${query.id}`)
     const [ fetchSearch, { data: similar_movies, isLoading } ] = useFetchSearchByTitleMutation()
 
     useEffect(() => {
