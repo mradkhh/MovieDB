@@ -53,7 +53,7 @@ const FilmsPage: FC = () => {
                                 ) : null
                             }
                         </Grid>
-                        <Pagination page={page} pages={Math.ceil(data?.totalResults / 10)} setPage={setPage} />
+                        <Pagination page={page} pages={(Math.ceil(data?.totalResults / 10) === 0) ? 1 : Math.ceil(data?.totalResults / 10)} setPage={setPage} />
                     </>
                     : isLoading
                         ? <Spinner/> :
