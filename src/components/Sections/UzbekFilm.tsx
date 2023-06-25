@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, useEffect} from 'react';
 import Head from "components/UI/Head/Head";
 import FilmCard from "components/UI/Cards/FilmCard";
 import Container from "components/Container/Container";
@@ -11,78 +11,23 @@ import film6 from "static/images/hamroh.jpg";
 import cl from "./styles/Translation.module.scss";
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import LinkCard from "components/UI/Cards/LinkCard";
+import {useFetchSearchByTitleMutation} from "services/services";
 
-const data = [
-    {
-        component: ( <FilmCard
-            year='2021'
-            title='Scorpion'
-            genre='Fantastik'
-            image={film1}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2020'
-            title='Elparvar'
-            genre='Tarixiy'
-            image={film2}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2021'
-            title='Men terrorchi emasman'
-            genre='Jangari'
-            image={film3}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Snayper'
-            genre='Jangari'
-            image={film4}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Notanish qotil'
-            genre='Otishma'
-            image={film5}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Hamroh'
-            genre='Melodrama'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Hamroh'
-            genre='Melodrama'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <LinkCard
-            href='/tarjima-kinolar'
-        /> )
-    }
-]
 
 
 const UzbekFilm: FC = memo(() => {
+
+    const [ fetchSearch, { data, isLoading } ] = useFetchSearchByTitleMutation()
+
+    useEffect(() => {
+        fetchSearch({s: 'ask'})
+    }, [])
+
     return (
         <FilmsCarouselLayout
             title="O'zbekcha kinolar"
             href="/tarjima-kinolar"
-            data={data}
+            data={data?.Search}
             autoplay={false}
             type='slider'
         />

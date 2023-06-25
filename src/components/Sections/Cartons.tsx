@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, useEffect} from 'react';
 import Head from "components/UI/Head/Head";
 import FilmCard from "components/UI/Cards/FilmCard";
 import Container from "components/Container/Container";
@@ -11,85 +11,22 @@ import film5 from "static/images/muhabbat.jpeg";
 import film6 from "static/images/qasos.jpg";
 import cl from "./styles/Series.module.scss";
 import LinkCard from "components/UI/Cards/LinkCard";
+import {useFetchSearchByTitleMutation} from "services/services";
 
-const data = [
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Teskari voqelik'
-            genre='Fantastik'
-            image={film1}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Sumerki 5 - Tong otishi'
-            genre='Fantastik'
-            image={film2}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Yirtqich'
-            genre='Fantastik'
-            image={film3}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Jersi'
-            genre='Fantastik'
-            image={film4}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Tor 4 - sevgi va momaqaldiroq'
-            genre='Fantastik'
-            image={film5}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <LinkCard
-            href='/cartons'
-        /> )
-    }
-]
 
 const Cartons: FC = memo(() => {
+
+    const [ fetchSearch, { data, isLoading } ] = useFetchSearchByTitleMutation()
+
+    useEffect(() => {
+        fetchSearch({s: 'naruto'})
+    }, [])
+
     return (
         <FilmsCarouselLayout
             title="Multfilmlar"
             href="/tarjima-kinolar"
-            data={data}
+            data={data?.Search}
             autoplay={false}
             type='slider'
         />

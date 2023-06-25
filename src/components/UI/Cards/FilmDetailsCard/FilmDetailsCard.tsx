@@ -1,7 +1,5 @@
-import Image from "next/image";
 import React, {FC, memo} from 'react';
 import ListItem from "./ListItem";
-import Reaction from "./Reaction";
 import cl from './styles/FilmDetailsCard.module.scss'
 import {IMovie} from "components/Pages/FilmPage";
 

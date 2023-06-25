@@ -24,3 +24,10 @@
     stroke: var(--green2);
   }
 }
+
+.root {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

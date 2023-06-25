@@ -40,11 +40,27 @@ const FilmsCarouselLayout: FC<FilmsFilmsCarouselLayoutProps> = ({
             { (type === 'slider') || (type === 'trailer') ? <Head title={title} href={href ? href : ''}/> : null  }
             <Carousel type={type} autoplay={autoplay} button={button} >
                 {
-                    data && data?.map((film, index) =>
+                   (type !== 'banner' && data) && data?.map((film, index) =>
                         <SwiperSlide key={index} >
-                            {film?.component}
+                            <FilmCard
+                                genre={film?.Type}
+                                key={film?.imdbID}
+                                id={film?.imdbID}
+                                title={film?.Title}
+                                year={film?.Year}
+                                image={film?.Poster}
+                            />
                         </SwiperSlide>
                     )
+
+                }
+                {
+                    (type === 'banner' && data) && data?.map((film, index) =>
+                        <SwiperSlide key={index} >
+                            { film?.component }
+                        </SwiperSlide>
+                    )
+
                 }
             </Carousel>
         </Container>

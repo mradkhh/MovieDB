@@ -5,10 +5,15 @@
   align-items: center;
   max-width: 500px;
   width: 100%;
+
+  form {
+    width: 100%;
+  }
 }
 
 .Icon {
   position: absolute;
   top: 8px;
   right: 10px;
+  cursor: pointer;
 }

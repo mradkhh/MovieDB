@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, useEffect} from 'react';
 import Container from "components/Container/Container";
 import Head from "components/UI/Head/Head";
 import FilmCard from "components/UI/Cards/FilmCard";
@@ -11,6 +11,7 @@ import film5 from 'static/images/thoree.jpg'
 import film6 from 'static/images/film6.jpg'
 import cl from './styles/Translation.module.scss'
 import LinkCard from "components/UI/Cards/LinkCard";
+import {useFetchSearchByTitleMutation} from "services/services";
 
 const data = [
     {
@@ -85,11 +86,18 @@ const data = [
 ]
 
 const Translation: FC = memo(() => {
+
+    const [ fetchSearch, { data: similar_movies, isLoading } ] = useFetchSearchByTitleMutation()
+
+    useEffect(() => {
+        fetchSearch({s: 'mission'})
+    }, [])
+
     return (
         <FilmsCarouselLayout
             title="Tarjima kinolar"
             href="/tarjima-kinolar"
-            data={data}
+            data={similar_movies?.Search}
             autoplay={false}
             type='slider'
         />

@@ -8,25 +8,22 @@ interface FilmCardProps {
     genre: string,
     image: any,
     year?: string,
-    status?: string
+    status?: string,
+    id: string
 }
 
-const FilmCard: FC<FilmCardProps> = memo(({ title, genre, image, year, status}) => {
+const FilmCard: FC<FilmCardProps> = memo(({ title, genre, image, year, status, id}) => {
     return (
-        <A href='film'>
+        <A href={`/film/${id}`}>
             <div className={cl.Card}>
                 <span className={cl.Year}>{year}</span>
                 <span className={cl.Status}>{status}</span>
                 <div className={cl.Img}>
-                    <Image
-                        objectFit='cover'
-                        objectPosition='center'
+                    <img
+                        src={image}
                         width={200}
                         height={280}
-                        src={image}
-                        alt={title}
-                        placeholder='blur'
-                    />
+                        alt="film"/>
                 </div>
                 <div className={cl.Body}>
                     <h2>{ title }</h2>

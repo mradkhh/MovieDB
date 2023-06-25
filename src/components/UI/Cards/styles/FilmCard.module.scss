@@ -8,7 +8,7 @@
   position: absolute;
   top: 15px;
   left: -5px;
-  font-size: 12px;
+  font-size: 16px;
   background-color: var(--red2);
   padding: 3px 12px;
   border-radius: 4px;
@@ -21,6 +21,8 @@
 .Img {
   overflow: hidden;
   border-radius: 8px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .Body {
@@ -33,5 +35,6 @@
   > p {
     font-size: 14px;
     color: var(--basic2);
+    text-transform: capitalize;
   }
 }

@@ -11,7 +11,6 @@ const Home: FC = memo(() => {
     return (
         <>
             <Premiere/>
-            <Trailer/>
             <Translation/>
             <UzbekFilm/>
             <HindFilm/>

@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, useEffect} from 'react';
 import Breadcrumbs from "components/UI/Breadcrumbs/Breadcrumbs";
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import FilmDetailsCard from "components/UI/Cards/FilmDetailsCard/FilmDetailsCard";
@@ -16,7 +16,8 @@ import film4 from "static/images/jersi.jpg";
 import film5 from "static/images/thoree.jpg";
 import film6 from "static/images/film6.jpg";
 import cl from './FilmPage.module.scss';
-import {useFetchGetMovieByIDQuery} from "services/services";
+import {useFetchGetMovieByIDQuery, useFetchSearchByTitleMutation} from "services/services";
+import {useRouter} from "next/router";
 
 interface FilmPageProps {
 
@@ -27,80 +28,6 @@ const breadcrumb = [
     { path: '/films', text: 'Kinolar' },
 ]
 
-const data = [
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Teskari voqelik'
-            genre='Fantastik'
-            image={film1}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Sumerki 5 - Tong otishi'
-            genre='Fantastik'
-            image={film2}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Yirtqich'
-            genre='Fantastik'
-            image={film3}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Jersi'
-            genre='Fantastik'
-            image={film4}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Tor 4 - sevgi va momaqaldiroq'
-            genre='Fantastik'
-            image={film5}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    },
-    {
-        component: ( <FilmCard
-            year='2022'
-            title='Bitiruvchilar uchrashuvi'
-            genre='Melodrama, hindcha'
-            image={film6}
-        /> )
-    }
-]
 
 export interface IMovie {
     Actors: string;
@@ -138,15 +65,14 @@ interface Rating {
 
 const FilmPage: FC<FilmPageProps> = memo(({  }) => {
 
-    const { data: movie } = useFetchGetMovieByIDQuery({} as IMovie)
+    const { query } = useRouter()
 
-    console.log(movie)
+    const { data: movie } = useFetchGetMovieByIDQuery({ id: query.id })
+    const [ fetchSearch, { data: similar_movies, isLoading } ] = useFetchSearchByTitleMutation()
 
-    const tabs = [
-        { title: "Onlayn ko'rish", content: <Video/>  },
-        { title: "Treylerini ko'rish", content: <TrailerVideo/>  },
-        { title: "Yuklash", content: <Download/>  },
-    ]
+    useEffect(() => {
+        fetchSearch({s: 'mission'})
+    }, [])
 
     return (
         <>
@@ -155,12 +81,11 @@ const FilmPage: FC<FilmPageProps> = memo(({  }) => {
                 <FilmDetailsCard
                     movieInfo={movie}
                 />
-                <Tabs tabs={tabs} />
             </Container>
             <FilmsCarouselLayout
                 title="O'xshash"
                 href="/favorites"
-                data={data}
+                data={similar_movies?.Search}
                 type="slider"
                 autoplay={{
                     delay: 1500

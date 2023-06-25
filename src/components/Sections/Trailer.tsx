@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Container from "components/Container/Container";
 import Head from "components/UI/Head/Head";
 import TrailerCard from "components/UI/Cards/TrailerCard";
@@ -8,44 +8,22 @@ import avatar from 'static/images/avatar.jpg'
 import impossible from 'static/images/impossibe.jpg'
 import cl from './styles/Trailer.module.scss'
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
+import {useFetchSearchByTitleMutation} from "services/services";
 
-const data = [
-    {
-        component: <TrailerCard
-                        title="Yura davri 3"
-                        genre="Jangari, Fantastik"
-                        image={jurassic}
-                    />
-    },
-    {
-        component: <TrailerCard
-                        title="Uddalab bo'lmas topshiriq 7"
-                        genre="Jangari, Otishma"
-                        image={impossible}
-                    />
-    },
-    {
-        component: <TrailerCard
-                        title="Avatar 2"
-                        genre="Jangari, Fantastik"
-                        image={avatar}
-                    />
-    },
-    {
-        component: <TrailerCard
-                        title="Qora Adam"
-                        genre="Jangari, Fantastik"
-                        image={adam}
-                    />
-    },
-]
 
 const Trailer = () => {
+
+    const [ fetchSearch, { data: similar_movies, isLoading } ] = useFetchSearchByTitleMutation()
+
+    useEffect(() => {
+        fetchSearch({s: 'mission'})
+    }, [])
+
     return (
             <FilmsCarouselLayout
                 title="Tez kunda bizda"
                 href="/trailer"
-                data={data}
+                data={similar_movies?.Search}
                 autoplay={{
                     delay: 1500
                 }}

@@ -29,14 +29,26 @@ export const fetchApi = createApi({
                 }),
                 providesTags: () => ['Fetch'],
             }),
-            fetchGetMovieByID: builder.query<IMovie, IMovie>({
+            fetchGetMovieByID: builder.query<IMovie, { id: string }>({
+                query: ({id}) => ({
+                    url: `/?i=${id}&apikey=6721955c`,
+                }),
+                providesTags: () => ['Fetch'],
+            }),
+            fetchSearchByTitle: builder.mutation<{}, {}>({
                 query: (params) => ({
-                    url: `/?i=tt3896198&apikey=6721955c`,
+                    url: `/?apikey=6721955c`,
                     params : {
                         ...params
                     }
                 }),
-                providesTags: () => ['Fetch'],
+                invalidatesTags: () => ['Fetch'],
+            }),
+            fetchSearchByType: builder.mutation<{}, {}>({
+                query: (params) => ({
+                    url: `/?type=${params?.type}&apikey=6721955c`,
+                }),
+                invalidatesTags: () => ['Fetch'],
             }),
         }
     }
@@ -44,7 +56,9 @@ export const fetchApi = createApi({
 
 export const {
     useFetchGetMoviesQuery,
-    useFetchGetMovieByIDQuery
+    useFetchGetMovieByIDQuery,
+    useFetchSearchByTitleMutation,
+    useFetchSearchByTypeMutation
 } = fetchApi
 
 

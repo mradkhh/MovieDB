@@ -1,5 +1,6 @@
 .Root {
   font-size: 16px;
+  width: 100%;
 
   > td {
     padding: 8px 16px;
@@ -11,5 +12,6 @@
 
   :last-child {
     background-color: var(--basic4);
+    width: 100%;
   }
 }
