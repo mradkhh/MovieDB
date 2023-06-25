@@ -81,7 +81,7 @@ const FilmPage: FC<FilmPageProps> = memo(({  }) => {
             <Breadcrumbs array={breadcrumb} current='Film name'/>
             <Container id='film-details_card'>
                 {
-                    (movie && !isLoading)
+                    (movie)
                         ? <FilmDetailsCard
                             movieInfo={movie}
                         />

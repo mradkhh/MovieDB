@@ -21,7 +21,7 @@ const FilmsPage: FC = () => {
     const [ page, setPage ] = useState<number>(1)
     const { query } = useRouter()
 
-    const [ fetchSearch, { data, isLoading } ] = useFetchSearchByTitleMutation()
+    const [ fetchSearch, { data, isLoading, error, status } ] = useFetchSearchByTitleMutation()
     const [ fetchSearchStatic, { data: static_movies, } ] = useFetchSearchByTitleMutation()
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const FilmsPage: FC = () => {
                         (!data?.Search?.length && !isLoading) ? <div className={cl.empty_page}>
                             <div>
                                 <EmptyIcon/>
-                                <h3>Siz qidiryotgan film topilmadi!</h3>
+                                <h3>{data?.Error}</h3>
                             </div>
                         </div> : null
             }

@@ -21,9 +21,10 @@
   background-color: var(--basic2);
   color: var(--basic1);
   transition: color 0.3s, background-color 0.3s, border 0.3s;
+  margin-right: 15px;
 
   &[disabled] {
-    color: rgba(#000, 0.3);
+    background-color: var(--basic3);
     pointer-events: none;
   }
 
@@ -36,9 +37,5 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-  }
-
-  &:not(:last-child) {
-    margin-right: 15px;
   }
 }
