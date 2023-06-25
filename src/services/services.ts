@@ -35,7 +35,7 @@ export const fetchApi = createApi({
                 }),
                 providesTags: () => ['Fetch'],
             }),
-            fetchSearchByTitle: builder.mutation<{}, {}>({
+            fetchSearchByTitle: builder.mutation<any, {}>({
                 query: (params) => ({
                     url: `/?apikey=6721955c`,
                     params : {
@@ -43,13 +43,7 @@ export const fetchApi = createApi({
                     }
                 }),
                 invalidatesTags: () => ['Fetch'],
-            }),
-            fetchSearchByType: builder.mutation<{}, {}>({
-                query: (params) => ({
-                    url: `/?type=${params?.type}&apikey=6721955c`,
-                }),
-                invalidatesTags: () => ['Fetch'],
-            }),
+            })
         }
     }
 })
@@ -58,7 +52,6 @@ export const {
     useFetchGetMoviesQuery,
     useFetchGetMovieByIDQuery,
     useFetchSearchByTitleMutation,
-    useFetchSearchByTypeMutation
 } = fetchApi
 
 

@@ -13,6 +13,11 @@ import film6 from "static/images/film6.jpg";
 import cl from './FilmsCarouselLayout.module.scss'
 
 type FilmType = {
+    Type: string,
+    imdbID: string,
+    Title: string,
+    Poster: string,
+    Year: string,
     component: JSX.Element
 }
 
