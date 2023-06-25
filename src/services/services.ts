@@ -7,7 +7,7 @@ interface CustomError {
 }
 
 
-const API = `http://www.omdbapi.com`
+const API = `https://www.omdbapi.com`
 
 
 export const fetchApi = createApi({
