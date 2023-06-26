@@ -4,4 +4,8 @@
   align-items: center;
   gap: 48px;
   padding-block: 10px;
+
+  @media (max-width: 480.99px) {
+    gap: 12px;
+  }
 }

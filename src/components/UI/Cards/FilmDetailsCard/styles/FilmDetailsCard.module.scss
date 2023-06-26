@@ -1,6 +1,14 @@
+@import '/src/styles/mixins.scss';
+
 .Root {
   gap: 24px;
   padding-block: 24px;
+
+
+  @media (max-width: 767.99px) {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+  }
 }
 
 .Img{

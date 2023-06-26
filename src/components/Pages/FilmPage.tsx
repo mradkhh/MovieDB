@@ -1,24 +1,12 @@
-import React, {FC, memo, useEffect, useState} from 'react';
+import React, {FC, memo, useEffect} from 'react';
 import Breadcrumbs from "components/UI/Breadcrumbs/Breadcrumbs";
 import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import FilmDetailsCard from "components/UI/Cards/FilmDetailsCard/FilmDetailsCard";
 import Container from "components/Container/Container";
-import FilmCard from "components/UI/Cards/FilmCard";
-import Tabs from "components/UI/Tabs/Tabs";
-import Video from "components/UI/Video/Video";
-import TrailerVideo from "components/UI/Video/TrailerVideo";
-import Download from "components/UI/Video/Download";
-import img from 'static/images/thoree.jpg';
-import film1 from "static/images/teskari.jpg";
-import film2 from "static/images/sumerki.jpg";
-import film3 from "static/images/yirtqich.jpg";
-import film4 from "static/images/jersi.jpg";
-import film5 from "static/images/thoree.jpg";
-import film6 from "static/images/film6.jpg";
-import cl from './FilmPage.module.scss';
 import {useFetchGetMovieByIDQuery, useFetchSearchByTitleMutation} from "services/services";
 import {useRouter} from "next/router";
 import {Spinner} from "components/UI/Spiner/Spiner";
+import cl from './FilmPage.module.scss';
 
 interface FilmPageProps {
 
