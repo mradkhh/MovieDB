@@ -1,6 +1,4 @@
 import React, {FC, memo} from 'react';
-import Container from "components/Container/Container";
-import Image from "next/image";
 import m1 from 'static/images/m1.jpg'
 import m2 from 'static/images/m2.jpg'
 import m3 from 'static/images/m3.jpg'
