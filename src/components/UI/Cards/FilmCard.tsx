@@ -2,6 +2,7 @@ import React, {FC, memo} from 'react';
 import Image from "next/image";
 import A from "components/UI/A/A";
 import cl from './styles/FilmCard.module.scss'
+import { useFetchGetMovieByIDQuery } from 'services/services';
 
 interface FilmCardProps {
     title: string,
@@ -9,15 +10,22 @@ interface FilmCardProps {
     image: any,
     year?: string,
     status?: string,
-    id: string
+    id: string,
 }
 
 const FilmCard: FC<FilmCardProps> = memo(({ title, genre, image, year, status, id}) => {
+
+    const { data: movie } = useFetchGetMovieByIDQuery(id)
+
+
+    console.log(movie)
+
+
     return (
         <A href={`/film/${id}`}>
             <div className={cl.Card}>
                 <span className={cl.Year}>{year}</span>
-                <span className={cl.Status}>{status}</span>
+                <span className={cl.Status}>{movie?.imdbRating}</span>
                 <div className={cl.Img}>
                     <img
                         src={image}
@@ -27,7 +35,7 @@ const FilmCard: FC<FilmCardProps> = memo(({ title, genre, image, year, status, i
                 </div>
                 <div className={cl.Body}>
                     <h2>{ title }</h2>
-                    <p>{ genre }</p>
+                    <p>{ movie?.Country }</p>
                 </div>
             </div>
         </A>

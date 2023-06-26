@@ -1,4 +1,5 @@
 import React, {FC, memo, useEffect, useState} from 'react';
+import dynamic from 'next/dynamic';
 import Breadcrumbs from "components/UI/Breadcrumbs/Breadcrumbs";
 import Grid from "components/UI/Grid/Grid";
 import FilmCard from "components/UI/Cards/FilmCard";
@@ -8,8 +9,10 @@ import {IMovie} from "components/Pages/FilmPage";
 import {Spinner} from "components/UI/Spiner/Spiner";
 import cl from './FilmsPage.module.scss'
 import {useRouter} from "next/router";
-import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import {EmptyIcon} from "static/svg";
+
+// =------------------ DYNAMIC IMPORTS ------------------------------=
+const FilmsCarouselLayout = dynamic(() => import("layouts/FilmsCarouselLayout"))
 
 const breadcrumb = [
     { path: '/', text: 'Bosh sahifa' }
@@ -21,9 +24,12 @@ const FilmsPage: FC = () => {
     const [ page, setPage ] = useState<number>(1)
     const { query } = useRouter()
 
+    //  =-------------------- FETCHING DATA --------------------------------=
     const [ fetchSearch, { data, isLoading, error, status } ] = useFetchSearchByTitleMutation()
     const [ fetchSearchStatic, { data: static_movies, } ] = useFetchSearchByTitleMutation()
 
+
+    
     useEffect(() => {
         fetchSearchStatic({s: 'george'})
     }, [])

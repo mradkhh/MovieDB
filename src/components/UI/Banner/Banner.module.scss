@@ -28,4 +28,22 @@
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 600;
+
+
+  @media (max-width: 677.98px) {
+    top: 24px;
+    padding: 8px 32px;
+    size: 20px;
+  }
+
+  @media (max-width: 566.99px) {
+    padding: 4px 28px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 479.99px) {
+    font-size: 14px;
+    padding: 4px 20px;
+    padding-left: 24px;
+  }
 }

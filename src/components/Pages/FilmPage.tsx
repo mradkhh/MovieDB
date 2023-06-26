@@ -1,12 +1,16 @@
 import React, {FC, memo, useEffect} from 'react';
+import dynamic from 'next/dynamic';
 import Breadcrumbs from "components/UI/Breadcrumbs/Breadcrumbs";
-import FilmsCarouselLayout from "layouts/FilmsCarouselLayout";
 import FilmDetailsCard from "components/UI/Cards/FilmDetailsCard/FilmDetailsCard";
 import Container from "components/Container/Container";
 import {useFetchGetMovieByIDQuery, useFetchSearchByTitleMutation} from "services/services";
 import {useRouter} from "next/router";
 import {Spinner} from "components/UI/Spiner/Spiner";
 import cl from './FilmPage.module.scss';
+
+
+// =------------------ DYNAMIC IMPORTS ------------------------------=
+const FilmsCarouselLayout = dynamic(() => import("layouts/FilmsCarouselLayout"))
 
 interface FilmPageProps {
 

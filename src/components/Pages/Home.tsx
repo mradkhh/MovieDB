@@ -1,11 +1,12 @@
 import React, {FC, memo} from 'react';
-import Premiere from "components/Sections/Premiere";
-import Trailer from "components/Sections/Trailer";
-import Translation from "components/Sections/Translation";
-import UzbekFilm from "components/Sections/UzbekFilm";
-import HindFilm from "components/Sections/HindFilm";
-import Series from "components/Sections/Series";
-import Cartons from "components/Sections/Cartons";
+import dynamic from 'next/dynamic';
+
+const Premiere = dynamic(() => import('components/Sections/Premiere'))
+const Translation = dynamic(() => import('components/Sections/Translation'))
+const UzbekFilm = dynamic(() => import('components/Sections/UzbekFilm'))
+const HindFilm = dynamic(() => import('components/Sections/HindFilm'))
+const Series = dynamic(() => import('components/Sections/Series'))
+const Cartons = dynamic(() => import('components/Sections/Cartons'))
 
 const Home: FC = memo(() => {
     return (

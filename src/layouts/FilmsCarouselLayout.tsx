@@ -1,15 +1,9 @@
-import React, {Component, FC, memo} from 'react';
+import React, { FC, memo} from 'react';
 import Carousel from "components/UI/Carousel/Carousel";
 import {SwiperSlide} from "swiper/react";
 import FilmCard from "components/UI/Cards/FilmCard";
 import Container from "components/Container/Container";
 import Head from "components/UI/Head/Head";
-import film1 from "static/images/teskari.jpg";
-import film2 from "static/images/sumerki.jpg";
-import film3 from "static/images/yirtqich.jpg";
-import film4 from "static/images/jersi.jpg";
-import film5 from "static/images/thoree.jpg";
-import film6 from "static/images/film6.jpg";
 import cl from './FilmsCarouselLayout.module.scss'
 
 type FilmType = {
