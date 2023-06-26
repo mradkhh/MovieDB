@@ -3,6 +3,7 @@
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
+  max-width: 100%;
 }
 .Year {
   position: absolute;
@@ -19,12 +20,12 @@
 
 .Status {
   position: absolute;
-  top: 15px;
-  right: 1px;
+  top: 45px;
+  left: -5px;
   font-size: 16px;
   background-color: var(--red2);
   padding: 3px 12px;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   z-index: 123;
   color: var(--basic6);
   line-height: 1;
